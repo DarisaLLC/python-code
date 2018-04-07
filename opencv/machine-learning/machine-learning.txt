@@ -1,0 +1,28 @@
+K Nearest Neighbour :
+KNN is one of the simplest classification algorithms in the category of supervised learning. The idea is to determine the category of the input
+based on proximity to other data in the feature space. The feature space is essentially an n-dimensional space in which data is projected based
+on the n variables used for classification.
+When a new point is added to the feature space, we can classify it by looking at the k closest known points and using the majority. Note that in
+this approach, each point is given the same weight, we could use modified kNN which assigns a weight to each point in the k nearest neighbours.
+
+Naive Bayes :
+Naive Bayes is a family of probabilistic algorithms that take advantage of probability theory and Bayes' Theorem to classify a sample.
+Probabilistic in this case means that it calculates the probability for each class and selects the highest one. The probability is calculated by
+using Bayes' Theorem, which describes the probability of a feature based on prior knowledge of conditions that might be related to that feature.
+Recall that Bayes' Theorem is P(A|B) = P(A)P(B|A)/P(B).
+When creating a machine learning model we need to choose the features, the pieces of data from the sample which we feed to the algorithm.
+Generally we'd like numeric data, so for a natural language processing example (determine whether text relates to sports or not) we'll use the
+frequency of each word.
+Once features are chosen, we can calculate each category's probability using Bayes' theorem, possibly applying Laplace smoothing so that p(x) = 0
+does not nullify our output.
+
+Support Vector Machine :
+A support vector machine takes a set of data points and builds a hyperplane (one less dimension than the data) which is then used to classify new
+points.
+
+Histogram of Oriented Gradients :
+A feature descriptor which uses a vector of values to represent the key aspects of an image.
+
+K Means Clustering :
+K-means clustering aims to partition n observations into k clusters in which each observation belongs to the cluster with the nearest mean, serving 
+as a prototype of the cluster.

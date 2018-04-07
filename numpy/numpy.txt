@@ -1,0 +1,1 @@
+Numpy provides scientifuc computing functions using Matlab like syntax.
