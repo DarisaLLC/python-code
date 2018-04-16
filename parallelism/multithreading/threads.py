@@ -127,7 +127,7 @@ class MyThreadWithArgs(threading.Thread):
         self.kwargs = kwargs
 
     def run(self):
-        logging.debug("running with %s and %s", self.args, self.kwargs)
+        logging.debug("[MyThreadWithArgs] running with %s and %s", self.args, self.kwargs)
 
 for i in range(5):
     t = MyThreadWithArgs(args=(i,), kwargs={'a':'A', 'b':'B'})
