@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
 
 """
-miscellaneous 
+miscellaneous
 """
 
 # sum (for loop)
@@ -80,11 +80,90 @@ def unique_ranges(in_list):
             curr_left = t[0]
             curr_right = t[1]
         elif t[0] >= curr_left and t[0] <= curr_right:
-            curr_left = t[0] if i == 0 else min(t[0], curr_left)
-            curr_right = t[1] if i == 0 else max(t[1], curr_right)
+            curr_left = min(t[0], curr_left)
+            curr_right = max(t[1], curr_right)
         else:
             results.append((curr_left, curr_right))
             curr_left = t[0]
             curr_right = t[1]
     results.append((curr_left, curr_right))
     return results
+
+# group anagrams
+def group_anagrams(strs):
+        groups = dict()
+
+        for s in strs:
+            s_id = str(sorted(s))
+
+            if s_id in groups:
+                groups[s_id].append(s)
+            else:
+                groups[s_id] = [s]
+
+        return [groups[g_id] for g_id in groups]
+
+# subsets of a set of elements 
+def all_subsets(l, i=0):
+    results = []
+
+    if i == len(l):
+        results.append(set())
+        return results
+
+    partials = all_subsets(l, i+1)
+
+    for p in partials:
+        cp = set(p)
+        cp.add(l[i])
+
+        results.append(p)
+        results.append(cp)
+
+    return results        
+
+# ways to make a certain amount of change with a certain set of denominations
+def make_change(n, coins, i):
+
+    if n == 0:
+        return 1
+
+    if i >= len(coins):
+        return 0
+    
+    ways = 0
+
+    while(n >= 0):
+        ways += make_change(n, coins, i+1)
+        n -= coins[i]
+
+    return ways
+             
+def print_odd_dsc(cur, end):
+
+    if cur%2 == 0:
+        cur += 1 
+
+    if cur > end:
+        return
+
+    print_odd_dsc(cur+2, end)
+
+    print(cur)
+
+        
+def ways_up(n):
+    
+    if n < 0:
+        return 0
+
+    if n == 0:
+        return 1
+
+    ways = 0
+
+    for i in range(1, 4):
+        n -= i
+        ways += ways_up(n)    
+
+    return ways

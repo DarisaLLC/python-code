@@ -121,8 +121,8 @@ for i in range(5):
     t.start()
 
 class MyThreadWithArgs(threading.Thread):
-    def __init__(self, group=None, target=None, name = None, args=(), kwargs=None):
-        threading.Thread.__init__(self, group=group, target=target, name=name)
+    def __init__(self, group=None, target=None, name=None, args=(), kwargs=None):
+        threading.Thread.__init__(self, group=group, target=target, args=args, kwargs=kwargs, name=name)
         self.args = args
         self.kwargs = kwargs
 

@@ -87,13 +87,26 @@ def jumping_range(n):
         if jump is None: jump = 1
         i += jump
 
-g = jumping_range(15)
+# g = jumping_range(15)
 
 # notice that calling __next__() implicitly sends None 
-print(next(g))
+# print(next(g))
 
-print(g.send(2))
-print(next(g)) # sends None
-print(g.send(-1))
-print(g.send(None))
-for i in g: print(i)
+# print(g.send(2))
+# print(next(g)) # sends None
+# print(g.send(-1))
+# print(g.send(None))
+# for i in g: print(i)
+
+import itertools
+
+def averager():
+    sum = float((yield))
+    counter = itertools.count(start=1)
+    while True:
+        sum += (yield sum / next(counter)) # adds what was sent and then yields the expression
+
+g = averager()
+print(g.send(None)) # initialize generator
+print(g.send(10)) # sets sum to 10 and returns sum/1
+print(g.send(5)) # updates sum to 15 and returns sum/2
