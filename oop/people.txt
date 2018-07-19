@@ -1,0 +1,4 @@
+name=John,age=35,hobby=philately
+name=Sally,age=28
+name=Vito,age=18,sex=male
+name=Maria,age=58
