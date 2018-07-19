@@ -38,6 +38,9 @@ class _DoublyLinkedBase:
         self._size -= 1
 
         # apparently this helps python's garbage collector
+        # this step also permits us to verify that a Position (location aware
+        # linked list) wraps a deleted Node since the use of sentinels ensures
+        # that a node should always have non-None prev and next pointers
         node._prev = None
         node._next = None
         node._element = None
