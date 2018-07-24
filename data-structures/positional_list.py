@@ -3,6 +3,7 @@ from doubly_linked_list import _DoublyLinkedBase
 
 class PositionalList(_DoublyLinkedBase):
 
+    # position abstraction
     class Position:
 
         def __init__(self, container, node):
@@ -132,8 +133,8 @@ def insertion_sort(L):
             L.add_before(leftmost, e)
 
 if __name__ == "__main__":
-    pl = PositionalList()
 
+    pl = PositionalList()
     pl.add_last(10)
     pl.add_last(5)
     pl.add_last(13)
