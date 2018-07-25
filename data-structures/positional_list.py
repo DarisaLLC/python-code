@@ -1,6 +1,8 @@
 from exceptions import EmptyError
-from doubly_linked_list import _DoublyLinkedBase
+from doubly_linked_base import _DoublyLinkedBase
 
+# todo:
+# what happens when the header or trailer is passed to the methods
 class PositionalList(_DoublyLinkedBase):
 
     # position abstraction
@@ -20,8 +22,8 @@ class PositionalList(_DoublyLinkedBase):
         def __ne__(self, other):
             return not (self == other)
 
-    # also handles case where p == None
     def _validate(self, p):
+        # also handles case where p == None
         if not isinstance(p, self.Position):
             raise TypeError("Must be a PositionalList.Position type.")
 
@@ -125,7 +127,7 @@ def insertion_sort(L):
             border = current
         # find leftmost node greater than current node
         else:
-            # walk is always greater than current node
+            # known leftmost node greater than the current node
             leftmost = border
             while leftmost != L.first() and L.before(leftmost).element() > e:
                 leftmost = L.before(leftmost)
@@ -145,3 +147,7 @@ if __name__ == "__main__":
     insertion_sort(pl)
     for e in pl:
         print(e)
+
+    p = pl.first()
+    h = pl.before(p)
+    pl.add_before(h, -1)

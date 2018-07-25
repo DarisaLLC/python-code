@@ -1,5 +1,5 @@
 from exceptions import EmptyError
-from doubly_linked_list import _DoublyLinkedBase
+from doubly_linked_base import _DoublyLinkedBase
 
 class LinkedDequeue(_DoublyLinkedBase):
 
