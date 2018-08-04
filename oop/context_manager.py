@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 
+"""
+Context Manager (class style):
+
+This is a regular python obejct with special methods __enter__ and __exit__.
+First the obect is instantiated, then the returv value of __enter__ is assigned
+to f. On leaving the block, __exit__ is called.
+"""
 class CustomOpen:
 
     def __init__(self, path, flag):
