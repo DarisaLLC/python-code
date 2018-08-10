@@ -16,8 +16,11 @@ def get_base_url(protocol, host, path):
     return "{}{}{}".format(protocol, host, path)
 
 def get_urlencoded_callback():
-    s = "http://127.0.0.1/callback"
+    s = "http://127.0.0.1:80/callback"
     return quote(s, safe="")
+
+def get_callback():
+    return "http://127.0.0.1:80/callback"
 
 def get_nonce():
     s = str(uuid.uuid4())
@@ -99,7 +102,7 @@ consumer_secret = "fvIw4hp6sFnC78HrzKBlsRfPUsk8EQaeYlOem3tqVXE1ZYEw2T"
 oauth_access_token_secret = None
 
 oauth_args = {
-    "oauth_callback": get_urlencoded_callback(),
+    "oauth_callback": get_callback(),
     "oauth_token": None,
     "oauth_signature": None,
     "oauth_consumer_key": "ecIUVtIhi8yivDCTjvk0h14ZV",
